@@ -1,15 +1,12 @@
 <template>
-  <v-container grid-list-xs text-xs-center class="mt-4">
+  <v-container grid-list-xs class="mt-4">
     <v-layout row wrap>
       <v-flex xs8 offset-xs2 sm4 offset-sm4>
         <div class="box-input white elevation-3 pa-4">
           <div>
-            <h1 class="grey--text text--darken-1">Register</h1>
+            <h1 class="grey--text text--darken-1">Login</h1>
           </div>
-          <form
-          name="tab-tracker-register"
-          autocomplete="off">
-            <v-text-field
+          <v-text-field
             type="email"
             name="email"
             placeholder="email"
@@ -23,10 +20,9 @@
           </v-text-field>
           <div v-html="error"/>
           <div>
-            <v-btn round class="light-blue" dark @click="register">Register
+            <v-btn round class="light-blue" dark @click="login">Login
             </v-btn>
           </div>
-          </form>
         </div>
       </v-flex>
     </v-layout>
@@ -49,9 +45,9 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
-        await AuthenticationService.register({
+        await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
@@ -62,5 +58,11 @@ export default {
   }
 }
 </script>
+
+<style>
+  .box-input {
+    border-radius: 4px;
+  }
+</style>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
