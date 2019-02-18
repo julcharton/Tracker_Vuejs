@@ -8,9 +8,9 @@
     </v-toolbar-items>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat>Link One</v-btn>
-      <v-btn flat @click="navigateTo('login')">Login</v-btn>
-      <v-btn flat @click="navigateTo('register')">Sign Up</v-btn>
+      <!-- <v-btn flat>Link One</v-btn> -->
+      <v-btn v-if="!$store.state.isUserLoggedIn" flat @click="navigateTo('login')">Login</v-btn>
+      <v-btn v-if="!$store.state.isUserLoggedIn" flat @click="navigateTo('register')">Sign Up</v-btn>
     </v-toolbar-items>
   </v-toolbar>
 </template>
