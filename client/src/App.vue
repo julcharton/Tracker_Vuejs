@@ -2,10 +2,9 @@
   <div id="app">
     <v-app>
       <page-header/>
+      <page-background/>
       <v-content>
-        <v-container fluid>
           <router-view/>
-        </v-container>
       </v-content>
     </v-app>
   </div>
@@ -13,10 +12,12 @@
 
 <script>
 import PageHeader from '@/components/Header.vue'
+import PageBackground from '@/components/Background.vue'
 export default {
   name: 'App',
   components: {
-    PageHeader
+    PageHeader,
+    PageBackground
   }
 }
 </script>
@@ -28,7 +29,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 .box-input {
     border-radius: 4px;

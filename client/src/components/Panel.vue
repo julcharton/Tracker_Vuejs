@@ -1,6 +1,6 @@
 <template>
-  <div class="white elevation-2">
-    <v-toolbar flat dense class="light-blue" dark>
+  <div class="white elevation-2 border" id="jj">
+    <v-toolbar flat dense class="red" dark>
       <v-toolbar-title>{{title}}</v-toolbar-title>
       <slot name="action" />
     </v-toolbar>
@@ -21,4 +21,7 @@ export default {
 </script>
 
 <style scoped>
+#jj {
+  border-radius: 20px !important
+}
 </style>

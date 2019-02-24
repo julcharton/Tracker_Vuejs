@@ -14,6 +14,17 @@ module.exports = {
       });
     }
   },
+  async show(req, res) {
+    try {
+      const song = await Song.findById(req.params.songId);
+      res.send(song);
+    } catch (err) {
+      // console.log('WE ARE HERE', err);
+      res.status(400).send({
+        error: 'An Error has occured trying to fetch songs.',
+      });
+    }
+  },
   async post(req, res) {
     try {
       const song = await Song.create(req.body);

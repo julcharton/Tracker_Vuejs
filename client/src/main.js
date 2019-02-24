@@ -13,10 +13,10 @@ Vue.config.productionTip = false
 
 Vue.use(Vuetify, {
   theme: {
-    primary: colors.purple,
-    secondary: colors.grey.darken1,
-    accent: colors.shades.black,
-    error: colors.red.accent3
+    primary: '#3f51b5',
+    secondary: '#b0bec5',
+    accent: '#8c9eff',
+    error: '#b71c1c'
   }
 })
 

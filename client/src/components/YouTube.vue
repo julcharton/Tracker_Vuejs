@@ -2,7 +2,7 @@
   <v-flex xs12 sm6>
     <panel title="Song Metadata">
       <div>
-        {{song.title}}
+        {{song.youtubeId}}
       </div>
     </panel>
   </v-flex>
@@ -19,9 +19,9 @@ export default {
       song: null
     }
   },
-  async mounted () {
+ async mounted () {
     const songId = this.$store.state.route.params.songId
-    this.song = (await SongsService.show(songId)).data
+     this.song = (await SongsService.show(songId)).data
   }
 }
 </script>
@@ -29,3 +29,5 @@ export default {
 <style>
 
 </style>
+
+

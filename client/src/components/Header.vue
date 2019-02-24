@@ -1,5 +1,6 @@
 <template>
-  <v-toolbar class='light-blue' dark fixed>
+  <v-toolbar fixed :flat="true" :dark="true" v-bind:class="{transparent: isTransparent}" v-scroll="handleScroll">
+    <v-spacer class="hidden-sm-and-down"></v-spacer>
     <v-toolbar-title @click="navigateTo('/')" id="pointer">
       TabTracker
     </v-toolbar-title>
@@ -7,17 +8,25 @@
     <v-btn flat @click="navigateTo({name: 'songs'})">Browse</v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>
+    <v-spacer></v-spacer>
+    <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <!-- <v-btn flat>Link One</v-btn> -->
       <v-btn v-if="!$store.state.isUserLoggedIn" flat @click="navigateTo('login')">Login</v-btn>
       <v-btn v-if="!$store.state.isUserLoggedIn" flat @click="navigateTo('register')">Sign Up</v-btn>
       <v-btn v-if="$store.state.isUserLoggedIn" flat @click="logout">Logout</v-btn>
     </v-toolbar-items>
+    <v-spacer></v-spacer>
   </v-toolbar>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      isTransparent: true
+    }
+  },
   methods: {
     navigateTo (route) {
       this.$router.push(route)
@@ -28,6 +37,9 @@ export default {
       this.$router.push({
         name: 'HelloWorld'
       })
+    },
+    handleScroll () {
+      this.isTransparent = window.scrollY < 150;
     }
   }
 }
