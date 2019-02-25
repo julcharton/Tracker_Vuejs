@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar fixed :flat="true" :dark="true" v-bind:class="{transparent: isTransparent}" v-scroll="handleScroll">
+  <v-toolbar fixed :flat="flat" :dark="dark" v-bind:class="[{transparent: isTransparent}, {white: true}]" v-scroll="handleScroll">
     <v-spacer class="hidden-sm-and-down"></v-spacer>
     <v-toolbar-title @click="navigateTo('/')" id="pointer">
       TabTracker
@@ -24,7 +24,9 @@
 export default {
   data () {
     return {
-      isTransparent: true
+      isTransparent: true,
+      dark:true,
+      flat: true
     }
   },
   methods: {
@@ -40,6 +42,8 @@ export default {
     },
     handleScroll () {
       this.isTransparent = window.scrollY < 150;
+      this.dark = window.scrollY < 150;
+      this.flat = window.scrollY < 150;
     }
   }
 }

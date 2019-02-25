@@ -1,25 +1,6 @@
 <template>
-  <v-container grid-list-xs>
+  <v-container>
     <v-layout row>
-      <!-- <v-flex xs12 md5 offset-md3>
-        <panel title="Songs">
-          <router-link :to="{name:  'create-song'}" slot="action">
-            <v-btn
-            class="red darken-1"
-            fab dark absolute small right bottom
-            >
-              <v-icon>add</v-icon>
-            </v-btn>
-          </router-link>
-          <div
-            v-for="song in songs"
-            :key="song.id">
-            {{song.title}} -
-            {{song.artist}} -
-            {{song.album}}
-          </div>
-        </panel>
-      </v-flex> -->
         <v-flex xs12>
           <panel title="Songs">
             <router-link :to="{name:  'create-song'}" slot="action">
@@ -31,50 +12,61 @@
               </v-btn>
             </router-link>
             <div class="mt-3">
-              <v-hover v-for="song in songs"
-                :key="song.id" id="pointer">
-                <v-card color="#B74F6F" class="white--text mb-2"
-                  slot-scope="{ hover }"
-                  :class="`elevation-${hover ? 12 : 2}`"
-                  @click="navigateTo({
-                  name: 'song',
-                  params: {
-                    songId: song.id
-                    }
-                  })"
+              <div class="quote primary--text my-4">{{quote}}<br>{{source}}</div>
+                <!-- <v-card flat>
+                   <v-container
+                    fluid
+                    grid-list-xs
+                  > -->
+              <v-card flat>
+                <v-container
+                  fluid
+                  grid-list-md
+                  
                 >
-                  <v-layout align-center row overflow-x-hidden >
-                    <v-flex xs7>
-                      <v-card-title  class="song-title text-xs-left" >
-                        <div>
-                          <div class="headline">{{song.title}}</div>
-                          <div>{{song.artist}}</div>
-                          <div>{{song.album}}</div>
-                        </div>
-                      </v-card-title>
-                      <v-btn round class="white mb-3" outline small dark @click="login">See Tabs</v-btn>
-                    </v-flex>
-                    <v-flex xs5 >
-                      <v-layout>
-                        <v-img
-                          :src="song.albumImage"
-                          max-height="125px"
-                          contain/>
-                      </v-layout>
+                  <v-layout row wrap>
+                    <v-flex
+                      v-for="song in songs"
+                      :key="song.id"
+                      xs12 sm6
+                    >
+                      <v-card flat>
+                        <v-layout align-start justify-center row>
+                          <v-flex xs12 >
+                            <v-img
+                              :src="song.albumImage"
+                              max-height="200px"
+                              width="200px"
+                              class= "md-card-jacket elevation-3"
+                            ></v-img>
+                          </v-flex>
+                          <v-flex xs6 grow>
+                            <v-layout>
+                              <div class="text-sm-left mr-3">
+                                <div class="headline py-3 font-weight-bold">{{song.title}}</div>
+                                <div class="primary--text text-uppercase subheading font-weight-medium">{{song.artist}}</div>
+                                <div class="primary--text subheading">{{song.album}}</div>
+                              </div>
+                            </v-layout>
+                          </v-flex>
+                        </v-layout>
+                      </v-card>
                     </v-flex>
                   </v-layout>
-                <!-- <v-divider light></v-divider>
-                <v-card-actions class="pa-3">
-                  Rate this album
-                  <v-spacer></v-spacer>
-                  <v-icon>star_border</v-icon>
-                  <v-icon>star_border</v-icon>
-                  <v-icon>star_border</v-icon>
-                  <v-icon>star_border</v-icon>
-                  <v-icon>star_border</v-icon>
-                </v-card-actions> -->
-                </v-card>
-              </v-hover>
+                </v-container>
+              </v-card>
+                    <v-layout>
+                      <v-flex>
+                        <v-hover v-for="song in songs"
+                        :key="song.id" id="pointer">
+                        <v-card>
+                          
+                          </v-card>
+                        </v-hover>
+                      </v-flex>
+                    </v-layout>
+                  <!-- </v-container>
+                </v-card> -->
             </div>
           </panel>
         </v-flex>
@@ -90,7 +82,9 @@ export default {
   },
   data () {
     return {
-      songs: null
+      songs: null,
+      quote: "If heavy metal bands ruled the world, we'd be a lot better off.",
+      source: "Bruce Dickinson"
     }
   },
   async mounted () {
@@ -103,9 +97,16 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
   .headline {
   font-size: 18px!important;
+}
+  .quote {
+   font-style: italic;
+   font-size: 18px
+  }
+.md-card-jacket {
+  border-radius: 7px;
 }
 </style>
 

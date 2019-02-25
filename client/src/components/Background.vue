@@ -9,7 +9,7 @@
       column
       justify-center
     >
-      <h1 class="display-2 font-weight-thin mb-3">Tab Tracker.js</h1>
+      <h1 class="display-3 font-weight-thin mb-3">Tab Tracker.js</h1>
       <h4 class="subheading">Scream your Tab today!</h4>
     </v-layout>
     
