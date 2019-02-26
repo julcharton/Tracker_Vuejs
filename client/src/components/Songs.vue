@@ -14,39 +14,37 @@
               >
                 <v-icon>add</v-icon>
               </v-btn>
-              <v-card flat>
+              <v-layout>
                 <v-container
                   fluid
-                  grid-list-md
-
+                  grid-list-lg
                 >
-                  <v-layout row wrap>
+                  <v-layout row wrap align-center  >
                     <v-flex
                       v-for="song in songs"
                       :key="song.id"
                       xs12 sm6
                     >
                       <v-card flat>
-                        <v-layout align-start justify-center row>
+                        <v-layout row>
                           <v-flex xs12 >
                             <v-img
                               :src="song.albumImage"
                               max-height="200px"
                               max-width="200px"
                               class= "md-card-jacket elevation-3"
-                              :to="{
+                              @click="navigateTo({
                               name: 'song', 
                               params: {
                               songId: song.id
-                              }}"
+                              }})"
                             ></v-img>
                           </v-flex>
                           <v-flex xs6 grow>
                             <v-layout align-start>
-                              <div class="text-xs-center text-md-left mx-1">
+                              <div class="text-xs-left mt-2 mx-1">
                                 <div class="headline pb-3 font-weight-bold">{{song.title}}</div>
                                 <div class="primary--text text-uppercase subheading font-weight-medium">{{song.artist}}</div>
-                                <div class="primary--text subheading">{{song.album}}</div>
                               </div>
                             </v-layout>
                             <v-btn round outline class="primary left mt-4 mx-0 hidden-sm-and-down" flat 
@@ -63,7 +61,7 @@
                     </v-flex>
                   </v-layout>
                 </v-container>
-              </v-card>
+              </v-layout>
             </div>
           </panel>
         </v-flex>

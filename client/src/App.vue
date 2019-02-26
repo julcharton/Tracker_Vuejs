@@ -2,7 +2,7 @@
   <div id="app">
     <v-app>
       <page-header/>
-      <page-background/>
+      <page-background v-if="!['login', 'register'].includes($route.name)"/>
       <v-content>
           <router-view/>
       </v-content>
@@ -33,5 +33,6 @@ export default {
 .box-input {
     border-radius: 4px;
 }
+
 
 </style>

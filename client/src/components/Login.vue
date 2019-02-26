@@ -1,32 +1,40 @@
 <template>
-  <v-container grid-list-xs class="mt-4">
-    <v-layout row wrap>
-      <v-flex xs8 offset-xs2 sm4 offset-sm4>
-        <div class="box-input white elevation-3 pa-4">
-          <div>
-            <h1 class="grey--text text--darken-1">Login</h1>
+  <v-img
+    :gradient="gradient"
+    src="https://source.unsplash.com/ASKeuOZqhYU/"
+    height="100vh"
+  >
+    <v-container class="mt-4" fill-height grid-list-md text-xs-center>
+      <v-layout align-center>
+        <v-flex xs10 offset-xs1 md4 offset-md4>
+          <div class="box-input white elevation-3 pa-4">
+            <div class="title-panel transparent py-4 ">
+              <h1 class="white--text">Login</h1>
+            </div>
+            <div class="py-3">
+              <v-text-field
+                type="email"
+                name="email"
+                label="Email"
+                v-model="email">
+              </v-text-field>
+              <v-text-field
+                type="password"
+                name="password"
+                placeholder="Password"
+                v-model="password">
+              </v-text-field>
+            </div>
+            <div v-html="error"/>
+            <div>
+              <v-btn round outline class="primary--text " dark @click="login">Login
+              </v-btn>
+            </div>
           </div>
-          <v-text-field
-            type="email"
-            name="email"
-            placeholder="email"
-            v-model="email">
-          </v-text-field>
-          <v-text-field
-            type="password"
-            name="password"
-            placeholder="password"
-            v-model="password">
-          </v-text-field>
-          <div v-html="error"/>
-          <div>
-            <v-btn round class="light-blue" dark @click="login">Login
-            </v-btn>
-          </div>
-        </div>
-      </v-flex>
-    </v-layout>
-  </v-container>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-img>
 </template>
 
 <script>
@@ -53,6 +61,7 @@ export default {
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push('/songs')
       } catch (error) {
         this.error = error.response.data.error
       }
@@ -61,8 +70,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .box-input {
+    border-radius: 4px;
+  }
+  .title-panel {
+    margin-top: -100px;
     border-radius: 4px;
   }
 </style>

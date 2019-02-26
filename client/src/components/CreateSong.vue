@@ -45,7 +45,7 @@
         </v-textarea>
       </panel>
       <v-btn
-      round class="light-blue mt-3" dark @click="create">Create Song
+      round outline class="primary--text" @click="create">Create Song
       </v-btn>
       <div class="danger-alert mt-2 red--text" v-if="error">
         {{error}}
