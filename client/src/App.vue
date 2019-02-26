@@ -33,4 +33,5 @@ export default {
 .box-input {
     border-radius: 4px;
 }
+
 </style>

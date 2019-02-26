@@ -3,26 +3,22 @@
     <v-layout row>
         <v-flex xs12>
           <panel title="Songs">
-            <router-link :to="{name:  'create-song'}" slot="action">
-              <v-btn
-              class="red darken-1 mb-2"
-              fab dark absolute small right bottom
+            <!-- <router-link :to="{name:  'create-song'}" slot="action"> -->
+              
+            <!-- </router-link> -->
+            <div class="mt-3">
+              <div class="quote primary--text mt-4 mb-2">{{quote}}<br>{{source}}</div>
+              <v-btn to="/songs/create"
+              class="darken-1 mb-4"
+              fab outline
               >
                 <v-icon>add</v-icon>
               </v-btn>
-            </router-link>
-            <div class="mt-3">
-              <div class="quote primary--text my-4">{{quote}}<br>{{source}}</div>
-                <!-- <v-card flat>
-                   <v-container
-                    fluid
-                    grid-list-xs
-                  > -->
               <v-card flat>
                 <v-container
                   fluid
                   grid-list-md
-                  
+
                 >
                   <v-layout row wrap>
                     <v-flex
@@ -36,18 +32,31 @@
                             <v-img
                               :src="song.albumImage"
                               max-height="200px"
-                              width="200px"
+                              max-width="200px"
                               class= "md-card-jacket elevation-3"
+                              :to="{
+                              name: 'song', 
+                              params: {
+                              songId: song.id
+                              }}"
                             ></v-img>
                           </v-flex>
                           <v-flex xs6 grow>
-                            <v-layout>
-                              <div class="text-sm-left mr-3">
-                                <div class="headline py-3 font-weight-bold">{{song.title}}</div>
+                            <v-layout align-start>
+                              <div class="text-xs-center text-md-left mx-1">
+                                <div class="headline pb-3 font-weight-bold">{{song.title}}</div>
                                 <div class="primary--text text-uppercase subheading font-weight-medium">{{song.artist}}</div>
                                 <div class="primary--text subheading">{{song.album}}</div>
                               </div>
                             </v-layout>
+                            <v-btn round outline class="primary left mt-4 mx-0 hidden-sm-and-down" flat 
+                            :to="{
+                            name: 'song', 
+                            params: {
+                            songId: song.id
+                            }}">
+                              See Tabs
+                            </v-btn>
                           </v-flex>
                         </v-layout>
                       </v-card>
@@ -55,18 +64,6 @@
                   </v-layout>
                 </v-container>
               </v-card>
-                    <v-layout>
-                      <v-flex>
-                        <v-hover v-for="song in songs"
-                        :key="song.id" id="pointer">
-                        <v-card>
-                          
-                          </v-card>
-                        </v-hover>
-                      </v-flex>
-                    </v-layout>
-                  <!-- </v-container>
-                </v-card> -->
             </div>
           </panel>
         </v-flex>
@@ -84,7 +81,7 @@ export default {
     return {
       songs: null,
       quote: "If heavy metal bands ruled the world, we'd be a lot better off.",
-      source: "Bruce Dickinson"
+      source: 'Bruce Dickinson'
     }
   },
   async mounted () {

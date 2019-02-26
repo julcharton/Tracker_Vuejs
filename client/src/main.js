@@ -5,7 +5,6 @@ import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-import colors from 'vuetify/es5/util/colors'
 import { sync } from 'vuex-router-sync'
 import store from '@/store/store'
 
@@ -13,7 +12,7 @@ Vue.config.productionTip = false
 
 Vue.use(Vuetify, {
   theme: {
-    grey:'#757575',
+    grey: '#757575',
     primary: '#757575',
     secondary: '#b0bec5',
     accent: '#8c9eff',

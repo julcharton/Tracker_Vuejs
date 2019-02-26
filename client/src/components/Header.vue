@@ -25,7 +25,7 @@ export default {
   data () {
     return {
       isTransparent: true,
-      dark:true,
+      dark: true,
       flat: true
     }
   },
@@ -41,9 +41,9 @@ export default {
       })
     },
     handleScroll () {
-      this.isTransparent = window.scrollY < 150;
-      this.dark = window.scrollY < 150;
-      this.flat = window.scrollY < 150;
+      this.isTransparent = window.scrollY < 150
+      this.dark = window.scrollY < 150
+      this.flat = window.scrollY < 150
     }
   }
 }
