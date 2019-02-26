@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js"
   },
+  
   "dependencies": {
     "ajv-keywords": "^3.4.0",
     "axios": "^0.18.0",

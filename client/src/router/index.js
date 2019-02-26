@@ -13,8 +13,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'songs',
+      component: Songs
     },
     {
       path: '/register',
@@ -25,11 +25,6 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
-    },
-    {
-      path: '/songs',
-      name: 'songs',
-      component: Songs
     },
     {
       path: '/songs/create',
